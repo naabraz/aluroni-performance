@@ -1,10 +1,15 @@
+import { memo } from 'react';
+
 import styles from './Item.module.scss';
 import { Prato } from 'types/Prato';
 import TagsPrato from 'components/TagsPrato';
 import { useNavigate } from 'react-router-dom';
 
-export default function Item(props: Prato) {
+function Item(props: Prato) {
   const { id, title, description, photo } = props;
+
+  id === 1 && console.log(title);
+
   const navigate = useNavigate();
   return (
     <div className={styles.item} onClick={() => navigate(`/prato/${id}`)}>
@@ -21,3 +26,5 @@ export default function Item(props: Prato) {
     </div>
   );
 }
+
+export default memo(Item);
