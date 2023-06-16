@@ -12,8 +12,10 @@ interface Props {
 
 function Ordenador({ ordenador, setOrdenador }: Props) {
   const [aberto, setAberto] = useState(false);
+
   const nomeOrdenador =
     ordenador && opcoes.find((opcao) => opcao.value === ordenador)?.nome;
+
   return (
     <button
       className={classNames({
@@ -24,11 +26,13 @@ function Ordenador({ ordenador, setOrdenador }: Props) {
       onBlur={() => setAberto(false)}
     >
       <span>{nomeOrdenador || 'Ordenar Por'}</span>
+
       {aberto ? (
         <MdKeyboardArrowUp size={20} />
       ) : (
         <MdKeyboardArrowDown size={20} />
       )}
+
       <div
         className={classNames({
           [styles.ordenador__options]: true,
